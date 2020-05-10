@@ -1,0 +1,125 @@
+<loading wx:if="{{loadingState != 1}}">
+    加载中...
+</loading>
+
+<view wx:else>
+
+<!-- 个人信息 -->
+<view  class="container">
+  <view class="title">
+    <image src="../../images/user-unlogin.png"></image>
+    <view class="user">
+    <text class="name">{{name}}</text>
+    <text class="post">{{position}}</text>
+    </view>
+  </view>
+
+  <view class="line"></view>
+
+  <view class="datum">
+     <view class="datum-item">
+       <text class="datum-item-up"  >{{sex}}</text>
+       <text class="datum-item-down">性别</text>
+     </view>
+
+     <view class="datum-item">
+       <text class="datum-item-up"  >{{age}}</text>
+       <text class="datum-item-down">年龄</text>
+     </view>
+
+      <view class="datum-item">
+       <text class="datum-item-up"  >{{diploma}}</text>
+       <text class="datum-item-down">学历</text>
+     </view>
+
+     <view class="datum-item">
+       <text class="datum-item-up"  >{{year}}</text>
+       <text class="datum-item-down">经验</text>
+     </view>
+  </view>
+
+  <view class="line"></view>
+
+  <view class="flex-column">
+  <text class="textcolor">{{addres}}</text>
+  <text class="textcolor toptwo">{{state}}</text>
+  </view>
+</view>
+
+
+<!-- 联系方式 -->
+<view class="container1">
+  <text class="textcolor">联系方式</text>
+  <view class="line"></view>
+  <view class="leftrigth" bindtap="dial">
+    <text >电话</text>
+    <text class="textcolor">{{tel}}</text>
+  </view>
+  <view class="line"></view>
+  <view class="leftrigth">
+    <text >邮箱</text>
+    <text class="textcolor" selectable='true'>{{mailbox}}</text>
+  </view>
+</view>
+
+<!-- 核心技术 -->
+<view class="container1">
+ <text class="textcolor">核心技术</text>
+ <view class="line"></view>
+ <view wx:for="{{technology}}" wx:key="index">
+  <view class="top technique">{{item.content}}</view>
+ </view>
+</view>
+
+<!-- 工作经历 -->
+<view class="container1">
+  <text class="textcolor">工作经历</text>
+ <view wx:for="{{experience}}" wx:key="index">
+  <view class="line"></view>
+  <view class="experience">{{item.date}} </view>
+  <view class="leftrigth toptwo">
+    <text class="experience"> {{item.companyname}}</text>
+    <text class="experience">{{position}}</text>
+  </view>
+  <view class="textcolor toptwo">工作描述:</view>
+  <view wx:for="{{item.work}}" wx:key="index">
+    <view class="toptwo technique">{{item.describe}}</view>
+  </view>
+ </view>
+</view>
+
+<!-- 项目经验 -->
+<view class="container1" >
+<text class="textcolor">项目经验</text>
+<view wx:for="{{duty}}" wx:key="index">
+<view class="line"></view>
+<view class="titltsize">{{item.name}}</view>
+<view class="toptwo textcolor">项目描述:</view>
+<view class="toptwo technique">{{item.describe}}</view>
+<view class="toptwo textcolor">责任描述:</view>
+<view wx:for="{{item.contentlist}}" wx:key="index">
+  <view class="top technique">{{item.content}}</view>
+ </view>
+ </view>
+</view>
+
+
+<!-- 教育经历 -->
+<view class="container1">
+  <text class="textcolor">教育经历</text>
+  <view class="line"></view>
+  <view class="toptwo technique">{{college}}</view>
+  <view class="toptwo technique">{{diploma}} | {{major}} | {{graduate}}</view>
+</view>
+
+
+<!-- 自我评价 -->
+<view class="container2">
+  <text class="textcolor">自我评价</text>
+  <view class="line"></view>
+  <view wx:for="{{evaluate}}" wx:key="index">
+    <view class="evaluate technique">{{item.content}}</view>
+  </view>
+  
+</view>
+</view>
